@@ -1,0 +1,235 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPA5t0TDraC7gJJS5sqx444",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Nirmitdagli/Quantum-Learnig/blob/main/Phase2\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FCGI2G2ASql-",
+        "outputId": "3ff42546-2ba9-4d1b-d290-cbd930fbdb35"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/2.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m2.0/2.0 MB\u001b[0m \u001b[31m63.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.0/2.0 MB\u001b[0m \u001b[31m39.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/597.5 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m597.5/597.5 kB\u001b[0m \u001b[31m32.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/72.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m72.0/72.0 kB\u001b[0m \u001b[31m5.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/425.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m425.1/425.1 kB\u001b[0m \u001b[31m23.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/2.8 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m2.8/2.8 MB\u001b[0m \u001b[31m120.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.8/2.8 MB\u001b[0m \u001b[31m59.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25h"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install cirq --quiet"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import cirq\n",
+        "import numpy as np"
+      ],
+      "metadata": {
+        "id": "Sl65RggYS1-R"
+      },
+      "execution_count": 11,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Simulated 4-word paragraph chunk\n",
+        "words = ['data', 'quantum', 'classical', 'search']\n",
+        "target_word = 'quantum'\n",
+        "target_index = words.index(target_word)\n",
+        "target_bin = format(target_index, '02b')\n",
+        "\n",
+        "# Define qubits (2 qubits for 4 words)\n",
+        "qubits = [cirq.LineQubit(i) for i in range(2)]"
+      ],
+      "metadata": {
+        "id": "4LpDeu0ZTBqb"
+      },
+      "execution_count": 12,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def oracle():\n",
+        "    circuit = cirq.Circuit()\n",
+        "    if target_bin[0] == '1':\n",
+        "        circuit.append(cirq.X(qubits[0]))\n",
+        "    if target_bin[1] == '1':\n",
+        "        circuit.append(cirq.X(qubits[1]))\n",
+        "    circuit.append(cirq.CZ(qubits[0], qubits[1]))\n",
+        "    if target_bin[1] == '1':\n",
+        "        circuit.append(cirq.X(qubits[1]))\n",
+        "    if target_bin[0] == '1':\n",
+        "        circuit.append(cirq.X(qubits[0]))\n",
+        "    return circuit"
+      ],
+      "metadata": {
+        "id": "IKVCkCK7TKHT"
+      },
+      "execution_count": 13,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Grover diffusion\n",
+        "def diffusion():\n",
+        "    return [\n",
+        "        cirq.H.on_each(*qubits),\n",
+        "        cirq.X.on_each(*qubits),\n",
+        "        cirq.CZ(qubits[0], qubits[1]),\n",
+        "        cirq.X.on_each(*qubits),\n",
+        "        cirq.H.on_each(*qubits)\n",
+        "    ]\n",
+        "\n",
+        "# Build Grover circuit\n",
+        "circuit = cirq.Circuit()\n",
+        "circuit.append(cirq.H.on_each(*qubits))   # Superposition\n",
+        "circuit.append(oracle())                  # Oracle\n",
+        "circuit.append(diffusion())               # Amplify\n",
+        "circuit.append(cirq.measure(*qubits, key='result'))\n",
+        "\n",
+        "# Simulate circuit\n",
+        "simulator = cirq.Simulator()\n",
+        "result = simulator.run(circuit, repetitions=1000)\n",
+        "\n",
+        "# Parse results\n",
+        "counts = result.histogram(key=\"result\")\n",
+        "print(\"🔍 Simulated Word Search using Grover’s Algorithm:\")\n",
+        "for outcome, count in sorted(counts.items()):\n",
+        "    bin_str = format(outcome, '02b')\n",
+        "    word = words[int(bin_str, 2)]\n",
+        "    print(f\"Word '{word}' (|{bin_str}⟩): {count} times\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3SvJXZX0TO0i",
+        "outputId": "53d4548d-cdf6-44b0-f214-34f28e8a3b8a"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "🔍 Simulated Word Search using Grover’s Algorithm:\n",
+            "Word 'classical' (|10⟩): 1000 times\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Simulated 4-word paragraph chunk\n",
+        "words = ['data', 'quantum', 'classical', 'search']\n",
+        "target_word = 'classical'  # Target word\n",
+        "target_index = words.index(target_word)\n",
+        "target_bin = format(target_index, '02b')\n",
+        "\n",
+        "# Define qubits (2 qubits for 4 words)\n",
+        "qubits = [cirq.LineQubit(i) for i in range(2)]\n",
+        "\n",
+        "# Oracle for target index\n",
+        "def oracle():\n",
+        "    circuit = cirq.Circuit()\n",
+        "    if target_bin[0] == '1':\n",
+        "        circuit.append(cirq.X(qubits[0]))\n",
+        "    if target_bin[1] == '1':\n",
+        "        circuit.append(cirq.X(qubits[1]))\n",
+        "    circuit.append(cirq.CZ(qubits[0], qubits[1]))\n",
+        "    if target_bin[1] == '1':\n",
+        "        circuit.append(cirq.X(qubits[1]))\n",
+        "    if target_bin[0] == '1':\n",
+        "        circuit.append(cirq.X(qubits[0]))\n",
+        "    return circuit\n",
+        "\n",
+        "# Grover diffusion\n",
+        "def diffusion():\n",
+        "    return [\n",
+        "        cirq.H.on_each(*qubits),\n",
+        "        cirq.X.on_each(*qubits),\n",
+        "        cirq.CZ(qubits[0], qubits[1]),\n",
+        "        cirq.X.on_each(*qubits),\n",
+        "        cirq.H.on_each(*qubits)\n",
+        "    ]\n",
+        "\n",
+        "# Build Grover circuit\n",
+        "circuit = cirq.Circuit()\n",
+        "circuit.append(cirq.H.on_each(*qubits))   # Superposition\n",
+        "circuit.append(oracle())                  # Oracle\n",
+        "circuit.append(diffusion())               # Amplify\n",
+        "circuit.append(cirq.measure(*qubits, key='result'))\n",
+        "\n",
+        "# Simulate circuit\n",
+        "simulator = cirq.Simulator()\n",
+        "result = simulator.run(circuit, repetitions=1000)\n",
+        "\n",
+        "# Parse results\n",
+        "counts = result.histogram(key=\"result\")\n",
+        "print(\"🔍 Simulated Word Search using Grover’s Algorithm:\")\n",
+        "for outcome, count in sorted(counts.items()):\n",
+        "    bin_str = format(outcome, '02b')\n",
+        "    word = words[int(bin_str, 2)]\n",
+        "    print(f\"Word '{word}' (|{bin_str}⟩): {count} times\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "a8zshO1dULyj",
+        "outputId": "01f35ace-687d-4be3-bfe3-986746f37a59"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "🔍 Simulated Word Search using Grover’s Algorithm:\n",
+            "Word 'quantum' (|01⟩): 1000 times\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
